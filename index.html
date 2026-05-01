@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Transparency & Eco-Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="vanta-bg"></div>
+
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-leaf"></i> EcoTrace</h1>
+            <p>Transparent supply chains powered by Blockchain.</p>
+        </header>
+
+        <main>
+            <!-- Scanner Section -->
+            <section id="scanner-section" class="glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+                <h2>Scan Product Barcode / QR</h2>
+                <div id="reader" width="600px"></div>
+                <div class="manual-entry">
+                    <p>Or enter barcode manually:</p>
+                    <div class="input-group">
+                        <input type="text" id="manual-barcode" placeholder="e.g., 5000159461122">
+                        <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i> Trace</button>
+                    </div>
+                </div>
+                <div id="loading" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Fetching product details and blockchain records...</p>
+                </div>
+            </section>
+
+            <!-- Results Section (Hidden initially) -->
+            <section id="results-section" class="glass-card hidden" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
+                <div class="results-header">
+                    <button id="back-btn" class="icon-btn"><i class="fa-solid fa-arrow-left"></i> Back to Scan</button>
+                    <h2>Product Footprint</h2>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Product Info -->
+                    <div class="panel product-info">
+                        <h3><i class="fa-solid fa-box-open"></i> Product Details</h3>
+                        <div class="product-details-content">
+                            <img id="product-img" src="" alt="Product Image" style="display: none;">
+                            <div class="details-text">
+                                <h4 id="product-name">Loading...</h4>
+                                <p><strong>Brand:</strong> <span id="product-brand">-</span></p>
+                                <p><strong>Origin:</strong> <span id="product-origin">-</span></p>
+                                <p><strong>Weight:</strong> <span id="product-weight">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eco Metrics -->
+                    <div class="panel eco-metrics">
+                        <h3><i class="fa-solid fa-earth-americas"></i> Environmental Impact</h3>
+                        <div class="metrics-content">
+                            <div class="metric-circle" id="eco-rating-circle">
+                                <span id="eco-rating">?</span>
+                                <small>Eco Rating</small>
+                            </div>
+                            <div class="metric-stats">
+                                <div class="stat-item">
+                                    <i class="fa-solid fa-cloud"></i>
+                                    <div>
+                                        <strong><span id="total-co2">0</span> kg</strong>
+                                        <p>Total CO2 Emissions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blockchain Journey -->
+                <div class="panel blockchain-journey">
+                    <h3><i class="fa-brands fa-ethereum"></i> Supply Chain Journey (Verified)</h3>
+                    <div class="network-badge">
+                        <i class="fa-solid fa-link"></i> <span id="network-name">Loading...</span>
+                    </div>
+                    <div class="timeline" id="timeline-container">
+                        <!-- Timeline items injected via JS -->
+                    </div>
+                </div>
+
+            </section>
+        </main>
+        
+        <footer>
+            <p>Built for a greener future. Blockchain data simulated for demonstration.</p>
+        </footer>
+    </div>
+
+    <!-- 3D Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    
+    <!-- html5-qrcode for webcam barcode scanning -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="app.js"></script>
+</body>
+</html>
